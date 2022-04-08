@@ -6,7 +6,7 @@ type Info struct {
 	//pra resolver o acesso dessa forma -> info.Name[0]
 	// pra quando MultipleCol = true
 	MultipleCol bool
-	Index       int
+	Index       int // TODO: está sendo usado ?
 }
 
 //TODO: criar alguma forma de adicionar mais campos aqui

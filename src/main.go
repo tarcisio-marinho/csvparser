@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-	requiredFields := models.CreateFields()
 
 	if len(os.Args) != 2 {
 		log.Fatal(`
@@ -25,6 +24,7 @@ Program with wrong usarge, the correct one is:
 
 	defer f.Close()
 
+	requiredFields := models.CreateFields()
 	reqFieldsIdxs := parser.Parse(f, requiredFields)
 	fmt.Println(utils.Pprint(reqFieldsIdxs))
 }
