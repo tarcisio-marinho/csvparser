@@ -1,0 +1,93 @@
+{
+  "Fields": {
+    "email": [
+      {
+        "Name": [
+          "email"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "e-mail"
+        ],
+        "MultipleCol": false
+      }
+    ],
+    "id": [
+      {
+        "Name": [
+          "id"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "number"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "employeenumber"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "empid"
+        ],
+        "MultipleCol": false
+      }
+    ],
+    "name": [
+      {
+        "Name": [
+          "name"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "f.name",
+          "l.name"
+        ],
+        "MultipleCol": true
+      },
+      {
+        "Name": [
+          "firstname",
+          "lastname"
+        ],
+        "MultipleCol": true
+      },
+      {
+        "Name": [
+          "first",
+          "last"
+        ],
+        "MultipleCol": true
+      }
+    ],
+    "salary": [
+      {
+        "Name": [
+          "salary"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "wage"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "rate"
+        ],
+        "MultipleCol": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "Fields": {
+    "name": [
+      {
+        "Name": [
+          "name"
+        ],
+        "MultipleCol": false
+      },
+      {
+        "Name": [
+          "f.name",
+          "l.name"
+        ],
+        "MultipleCol": true
+      }
+    ],
+    "salary": [
+      {
+        "Name": [
+          "wage"
+        ],
+        "MultipleCol": false
+      }
+    ]
+  }
+}

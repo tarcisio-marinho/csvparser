@@ -29,8 +29,7 @@ type FieldIndex struct {
 
 // TODO: é essa a melhor estrutura ?
 type RequiredFields struct {
-	FieldName string
-	Fields    map[string][]Info
+	Fields map[string][]Info
 }
 
 func CreateRequiredFields() RequiredFields {
