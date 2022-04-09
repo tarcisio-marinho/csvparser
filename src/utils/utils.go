@@ -2,19 +2,24 @@ package utils
 
 import (
 	"encoding/json"
+	"fmt"
 	"sort"
 	"strings"
 )
 
-func Pprint(obj interface{}) string {
+func Pprint(message string, obj interface{}) {
 
 	fieldsJson, err := json.MarshalIndent(obj, "", " ")
 
 	if err != nil {
-		return ""
+		fmt.Println(message)
 	}
 
-	return string(fieldsJson)
+	fmt.Println(message, string(fieldsJson))
+}
+
+func HasValue(value string) bool {
+	return len(strings.TrimSpace(value)) != 0
 }
 
 func Trim(s string) string {
