@@ -4,25 +4,26 @@ import (
 	"csvparser/src/models"
 	"csvparser/src/parser"
 	"csvparser/src/utils"
-	"encoding/json"
 	"io/ioutil"
 	"log"
 	"os"
 )
 
 func getInputFiles() (string, string) {
+	/*
+		if len(os.Args) != 3 { // TODO: melhorar log fatal
+			log.Fatal(`
+			Program with wrong usarge, the correct one is:
+				~$ go run src/main.go [csvFilePath] [configFilePath]
+			example:
+				~$ go run src/main.go samples/roster1.csv config/required_fields.json
+			`)
+		}
+		return os.Args[1], os.Args[2]
+	*/
 
-	if len(os.Args) != 3 { // TODO: melhorar log fatal
-		log.Fatal(`
-		Program with wrong usarge, the correct one is:
-			~$ go run src/main.go [csvFilePath] [configFilePath]
-		example:
-			~$ go run src/main.go samples/roster1.csv config/required_fields.json
-		`)
-	}
-	return os.Args[1], os.Args[2]
-
-	//return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv", "config/config.json"
+	return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
+		"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"
 }
 
 func main() {
@@ -39,9 +40,9 @@ func main() {
 	// TODO: iterar sobre todos os arquivos dentro de uma pasta ?
 
 	//requiredFields := models.CreateFields() // TODO: load required fields from disk
-	reqFields := loadConfig(configFilePath)
+	fields := loadFieldsFromConfig(configFilePath)
 
-	employees := parser.Parse(f, reqFields)
+	employees := parser.Parse(f, fields)
 
 	for _, employee := range employees {
 		if employee.IsCorrect() {
@@ -54,16 +55,13 @@ func main() {
 }
 
 // TODO: validar arquivo de input -> validar se os arrays estão preenchidos
-func loadConfig(path string) models.RequiredFields {
-	file, err := ioutil.ReadFile(path)
+func loadFieldsFromConfig(path string) models.Fields {
+	fileContent, err := ioutil.ReadFile(path)
 
 	if err != nil {
 		log.Fatal("error loading config file:", err)
 	}
 
-	requiredFields := models.RequiredFields{}
-
-	err = json.Unmarshal([]byte(file), &requiredFields)
 	exampleFormat := `
 {
   "Fields": {
@@ -93,15 +91,15 @@ func loadConfig(path string) models.RequiredFields {
   }
 }
 
-In this example, the fields that will be searched are: "name" and "salary"
+In this example, the required fields that will be searched in the csv are: "name" and "salary"
 with the possibles headers "name", "f.name" + "l.name" and "rate" respectively
 	`
+	fields, err := models.CreateFieldsFromConfig(fileContent)
 
 	if err != nil {
 		log.Fatal("error in the json config format, the correct format should be:\n",
 			exampleFormat, "the error: ", err)
 	}
 
-	return requiredFields
-
+	return fields
 }
