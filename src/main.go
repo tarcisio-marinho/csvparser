@@ -10,20 +10,21 @@ import (
 )
 
 func getInputFiles() (string, string) {
-	/*
-		if len(os.Args) != 3 { // TODO: melhorar log fatal
-			log.Fatal(`
+
+	if len(os.Args) != 3 { // TODO: melhorar log fatal
+		log.Fatal(`
 			Program with wrong usarge, the correct one is:
 				~$ go run src/main.go [csvFilePath] [configFilePath]
 			example:
 				~$ go run src/main.go samples/roster1.csv config/required_fields.json
 			`)
-		}
-		return os.Args[1], os.Args[2]
-	*/
+	}
+	return os.Args[1], os.Args[2]
 
-	return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
-		"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"
+	/*
+		return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
+			"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"
+	*/
 }
 
 func main() {
@@ -45,11 +46,12 @@ func main() {
 	employees := parser.Parse(f, fields)
 
 	for _, employee := range employees {
+		utils.Pprint("\n\n", employee)
 		if employee.IsCorrect() {
-			utils.Pprint("CORRECT:", employee.Data)
 
+			// TODO: implement logic to put on valid output
 		} else {
-			utils.Pprint("WRONG:", employee.Data)
+			// TODO: implement logic to put on invalid output
 		}
 	}
 }
@@ -64,7 +66,7 @@ func loadFieldsFromConfig(path string) models.Fields {
 
 	exampleFormat := `
 {
-  "Fields": {
+  "RequiredFields": {
     "name": [
       {
         "Name": [
@@ -88,11 +90,16 @@ func loadFieldsFromConfig(path string) models.Fields {
         "MultipleCol": false
       }
     ]
-  }
+  },
+  "UniqueFields": [
+      "name"
+    ]
 }
 
 In this example, the required fields that will be searched in the csv are: "name" and "salary"
 with the possibles headers "name", "f.name" + "l.name" and "rate" respectively
+if any unique fields, it must be in the required fields
+Unique fields cannot be repeated in the csv, it must be unique
 	`
 	fields, err := models.CreateFieldsFromConfig(fileContent)
 

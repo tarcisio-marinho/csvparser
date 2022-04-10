@@ -1,9 +1,29 @@
 package models
 
+import "csvparser/src/utils"
+
 //TODO: colocar employee em um pacote separado ?
 type Employee struct {
 	Data    map[string]string
-	Correct bool
+	Correct CorrectData
+}
+
+type CorrectData struct {
+	IsCorrect bool
+	Reason    string
+}
+
+func (e *Employee) SetIncorrect(message string) {
+	e.Correct.IsCorrect = false
+	e.Correct.Reason = message
+}
+
+func (e *Employee) SetCorrect() {
+	if utils.HasValue(e.Correct.Reason) {
+		return
+	} else {
+		e.Correct.IsCorrect = true
+	}
 }
 
 func CreateEmployee() Employee {
@@ -11,7 +31,7 @@ func CreateEmployee() Employee {
 }
 
 func (e Employee) IsCorrect() bool {
-	return e.Correct
+	return e.Correct.IsCorrect
 }
 
 /* DEPRECATED

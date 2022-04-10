@@ -4,6 +4,7 @@ import (
 	"csvparser/src/models"
 	"csvparser/src/utils"
 	"encoding/csv"
+	"fmt"
 	"io"
 	"log"
 	"strings"
@@ -99,17 +100,7 @@ func getEmployeesData(csvReader *csv.Reader, fields []models.FieldIndex, uniqueF
 			if !field.MultipleCol {
 				value := row[field.Index[0]]
 
-				employee.Data[field.FieldName] = value
-
-				if utils.HasValue(value) {
-					employee.Correct = true
-				} else {
-					employee.Correct = false
-				}
-
-				if uniqueFields.AlreadyInserted(value, field.FieldName) {
-
-				}
+				handleEmployeeDataCorrectly(&employee, uniqueFields, value, field.FieldName)
 
 			} else {
 				finalValue := ""
@@ -118,19 +109,33 @@ func getEmployeesData(csvReader *csv.Reader, fields []models.FieldIndex, uniqueF
 
 					if utils.HasValue(partial) {
 						finalValue += partial + " "
-					} else {
-						finalValue = "" // if any field is empty, exit
-						break
 					}
 				}
 
-				employee.Data[field.FieldName] = strings.TrimSpace(finalValue)
+				handleEmployeeDataCorrectly(&employee, uniqueFields, finalValue, field.FieldName)
+
 			}
 		}
 		correctEntries = append(correctEntries, employee)
 	}
 
 	return correctEntries
+}
+
+func handleEmployeeDataCorrectly(employee *models.Employee, uniqueFields models.UniqueFields, value string, fieldName string) {
+	employee.Data[fieldName] = strings.TrimSpace(value)
+	if utils.HasValue(value) {
+		employee.SetCorrect()
+	} else {
+		employee.SetIncorrect(fmt.Sprintf("empty value for field: %s", fieldName))
+	}
+
+	if uniqueFields.AlreadyInserted(value, fieldName) {
+		employee.SetIncorrect(fmt.Sprintf("%s: %s - duplicated field", fieldName, value))
+
+	} else {
+		uniqueFields.InsertField(value, fieldName)
+	}
 }
 
 // TODO: e se os campos estiverem vazios ?
