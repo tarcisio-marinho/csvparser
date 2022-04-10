@@ -16,7 +16,7 @@ func getInputFiles() (string, string) {
 			Program with wrong usarge, the correct one is:
 				~$ go run src/main.go [csvFilePath] [configFilePath]
 			example:
-				~$ go run src/main.go samples/roster1.csv config/required_fields.json
+				~$ go run src/main.go samples/roster1.csv config/full_config.json
 			`)
 	}
 	return os.Args[1], os.Args[2]
