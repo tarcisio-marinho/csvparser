@@ -3,7 +3,6 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"sort"
 	"strings"
 )
 
@@ -32,19 +31,15 @@ func Trim(s string) string {
 	return trimmed
 }
 
-func SortMapByKey(unsortedMap map[string]int) []int {
+func SortMapByKey(unsortedMap map[string]int, reference []string) []int {
 
-	keys := make([]string, 0, len(unsortedMap))
-
-	for k := range unsortedMap {
-		keys = append(keys, k)
+	var newOrder []int
+	for _, value := range reference {
+		v, found := unsortedMap[value]
+		if found {
+			newOrder = append(newOrder, v)
+		}
 	}
-	sort.Strings(keys)
 
-	idxOrder := make([]int, 0, len(unsortedMap))
-
-	for _, k := range keys {
-		idxOrder = append(idxOrder, unsortedMap[k])
-	}
-	return idxOrder
+	return newOrder
 }

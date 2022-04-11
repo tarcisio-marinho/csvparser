@@ -25,3 +25,9 @@ Requirements:
 - User Interface (Command-line / Web/ Desktop/ Mobile)
 - ReadMe/ User Guide/ Help
 - Configurations
+
+
+Tests:
+
+- cenários com headers inválidos, vazios, alguns vazios, todos vazios
+- cenários dos campos do csv estarem vazios, inválidos, alguns vazios, etrc

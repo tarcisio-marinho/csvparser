@@ -35,19 +35,20 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 	// TODO: tratar o caso se estiver tudo vazio, não achar nenhum campo dos que são requeridos
 	fieldsIdx := make([]models.FieldIndex, 0, len(requiredFields))
 
-	for reqField, fieldInfo := range requiredFields {
+	for reqField, fieldData := range requiredFields {
 
-		for _, info := range fieldInfo {
+		for _, data := range fieldData {
 
-			if !info.MultipleCol {
+			if !data.MultipleCol {
 
-				columnIndex, found := headers[info.Name[0]]
+				columnIndex, found := headers[data.Name[0]]
 				if found {
 					fieldsIdx = append(fieldsIdx, models.FieldIndex{
 						FieldName:   reqField,
 						Index:       []int{columnIndex},
-						MultipleCol: info.MultipleCol,
+						MultipleCol: data.MultipleCol,
 					})
+					break // TODO: testar o break
 				}
 
 			} else {
@@ -55,7 +56,7 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 				foundHeaders := 0
 				tempHeadersIndexDict := make(map[string]int)
 
-				for _, singleColumn := range info.Name {
+				for _, singleColumn := range data.Name {
 					columnIndex, found := headers[singleColumn]
 					if found {
 						foundHeaders++
@@ -63,16 +64,11 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 					}
 				}
 
-				if foundHeaders > 0 {
-					// TODO: Retirar essa lógica de sorting daqui, colocar no dicionário,
-					// levando em consideração a ordem do dicionario
-					// ["first", "name"] -> first name ,,,, ["name", "first"] -> name first
-					//
-					// sorting the keys, under the assumption that 'f' comes first than 'l' from 'first' 'last' names
+				if foundHeaders == len(data.Name) {
 					fieldsIdx = append(fieldsIdx, models.FieldIndex{
 						FieldName:   reqField,
-						Index:       utils.SortMapByKey(tempHeadersIndexDict),
-						MultipleCol: info.MultipleCol,
+						Index:       utils.SortMapByKey(tempHeadersIndexDict, data.Name),
+						MultipleCol: data.MultipleCol,
 					})
 				}
 			}
