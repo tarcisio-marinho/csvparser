@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C11 - Fixing bugs, sorting correctly, storing files on disk">
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C12 - Refactoring, removing todos, documenting parser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/.~lock.roster1.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/.~lock.roster2.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/.~lock.roster3.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/.~lock.roster4.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/roster2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/samples/roster2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/teste.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/fields.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fields.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/uniqueFields.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/uniqueFields.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/field.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +94,8 @@
     <MESSAGE value="C5- adding gitignore" />
     <MESSAGE value="C10- removing requiredfields" />
     <MESSAGE value="C11 - Fixing bugs, sorting correctly, storing files on disk" />
-    <option name="LAST_COMMIT_MESSAGE" value="C11 - Fixing bugs, sorting correctly, storing files on disk" />
+    <MESSAGE value="C12 - Refactoring, removing todos, documenting parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="C12 - Refactoring, removing todos, documenting parser" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -118,18 +110,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
-          <line>31</line>
+          <line>37</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
-          <line>53</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
-          <line>182</line>
-          <option name="timeStamp" value="56" />
+          <url>file://$PROJECT_DIR$/src/validations/fieldsValidation.go</url>
+          <line>9</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -3,6 +3,7 @@ package parser
 import (
 	"csvparser/src/models"
 	"csvparser/src/utils"
+	"csvparser/src/validations"
 	"encoding/csv"
 	"errors"
 	"fmt"
@@ -17,7 +18,12 @@ import (
 //
 // Parse will output a list of employees.
 func Parse(f io.Reader, fields models.Fields) []models.Employee {
-	// TODO: criar método que irá validar os fields -> required and unique fields
+
+	err := validations.ValidateFields(fields)
+	if err != nil {
+		log.Fatal("erro validating fields: ", err) // TODO: retornar error para cima
+	}
+
 	csvReader := csv.NewReader(f)
 	firstRow, err := csvReader.Read()
 
@@ -25,7 +31,7 @@ func Parse(f io.Reader, fields models.Fields) []models.Employee {
 		log.Fatal("csv file wihtout header, found: ", err) // TODO: retornar error para cima
 	}
 
-	headers := getCsvHeadersIdx(firstRow)
+	headers := getCsvHeadersIdx(firstRow) // TODO: validar a saida dos headers, para ver se não tem erro
 
 	reqFieldsIdxs, err := getRequiredFieldsIndex(headers, fields.RequiredFields)
 
@@ -48,10 +54,10 @@ func Parse(f io.Reader, fields models.Fields) []models.Employee {
 //
 // E.g. requiredFields: ["name", "email"] - csv: firstname, lastname, id, e-mail
 //
-// [ {"name": {"Index": [0, 1], multipleColumn: true}}, {"email": {"Index": [3], multipleColumn: false}} ]
+// output - [ {"name": {"Index": [0, 1], multipleColumn: true}}, {"email": {"Index": [3], multipleColumn: false}} ]
 func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]models.Field) ([]models.FieldIndex, error) {
 
-	fieldsIdx := make([]models.FieldIndex, 0, len(requiredFields))
+	requiredFieldsIdx := make([]models.FieldIndex, 0, len(requiredFields))
 
 	for reqField, fieldData := range requiredFields {
 
@@ -59,9 +65,9 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 
 			if !data.MultipleCol {
 
-				columnIndex, found := headers[data.Name[0]]
+				columnIndex, found := headers[data.GetName()]
 				if found {
-					fieldsIdx = append(fieldsIdx,
+					requiredFieldsIdx = append(requiredFieldsIdx,
 						models.FieldIndex{
 							FieldName:   reqField,
 							Index:       []int{columnIndex},
@@ -84,7 +90,7 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 				}
 
 				if foundHeaders == len(data.Name) {
-					fieldsIdx = append(fieldsIdx, models.FieldIndex{
+					requiredFieldsIdx = append(requiredFieldsIdx, models.FieldIndex{
 						FieldName:   reqField,
 						Index:       utils.SortMap(tempHeadersIndexDict, data.Name),
 						MultipleCol: data.MultipleCol,
@@ -94,11 +100,11 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 		}
 	}
 
-	if len(fieldsIdx) != len(requiredFields) {
+	if len(requiredFieldsIdx) != len(requiredFields) {
 		return nil, errors.New("CSV headers doesn't match with the required fields. Some required fields where not found")
 	}
 
-	return fieldsIdx, nil
+	return requiredFieldsIdx, nil
 }
 
 // getEmployees process the csv file content getting the employees required fields
@@ -169,14 +175,14 @@ func insertEmpAndCheckUniquiness(employee *models.Employee, uniqueFields models.
 
 // getCsvHeadersIdx returns the field and index in the csv
 //
-// E.g. csv - name, salary, email - output: {"name":0, "salary":1, "email":2}
+// E.g. csv: name, salary, email - output: {"name":0, "salary":1, "email":2}
 func getCsvHeadersIdx(row []string) map[string]int {
 
 	headers := make(map[string]int)
 
 	for index, field := range row {
 		trimmedField := utils.Trim(field)
-		if utils.HasValue(trimmedField) {
+		if utils.HasValue(trimmedField) { //TODO: e se todos os headers estiverem vazios ?
 			headers[trimmedField] = index
 		}
 	}

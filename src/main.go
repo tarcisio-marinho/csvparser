@@ -174,7 +174,7 @@ Unique fields cannot be repeated in the csv, it must be unique
 
 func getInputFiles() (string, string) {
 
-	/* if len(os.Args) != 3 { // TODO: melhorar log fatal
+	/* if len(os.Args) != 3 {
 		log.Fatal(`
 		Program with wrong usage, the correct one is:
 			~$ go run src/main.go [csvFilePath] [configFilePath]
