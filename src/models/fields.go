@@ -2,8 +2,6 @@ package models
 
 import (
 	"encoding/json"
-	"errors"
-	"fmt"
 )
 
 type Fields struct {
@@ -23,16 +21,6 @@ func CreateFieldsFromConfig(data []byte) (Fields, error) {
 
 	if err != nil {
 		return fields, err
-	}
-
-	for _, uniqueFieldName := range fields.UniqueFields {
-		_, found := fields.RequiredFields[uniqueFieldName]
-		if !found {
-			return fields, errors.New(
-				fmt.Sprintf("unique field: %s not present in required fields",
-					uniqueFieldName,
-				))
-		}
 	}
 
 	return fields, nil

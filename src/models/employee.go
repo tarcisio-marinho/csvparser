@@ -2,7 +2,6 @@ package models
 
 import "csvparser/src/utils"
 
-//TODO: colocar employee em um pacote separado ?
 type Employee struct {
 	Data    map[string]string
 	Correct CorrectData

@@ -31,7 +31,11 @@ func Parse(f io.Reader, fields models.Fields) []models.Employee {
 		log.Fatal("csv file wihtout header, found: ", err) // TODO: retornar error para cima
 	}
 
-	headers := getCsvHeadersIdx(firstRow) // TODO: validar a saida dos headers, para ver se não tem erro
+	headers, err := getCsvHeadersIdx(firstRow) // TODO: validar a saida dos headers, para ver se não tem erro
+
+	if err != nil {
+		log.Fatal(err) // TODO: retornar error para cima
+	}
 
 	reqFieldsIdxs, err := getRequiredFieldsIndex(headers, fields.RequiredFields)
 
@@ -176,15 +180,20 @@ func insertEmpAndCheckUniquiness(employee *models.Employee, uniqueFields models.
 // getCsvHeadersIdx returns the field and index in the csv
 //
 // E.g. csv: name, salary, email - output: {"name":0, "salary":1, "email":2}
-func getCsvHeadersIdx(row []string) map[string]int {
+func getCsvHeadersIdx(row []string) (map[string]int, error) {
 
 	headers := make(map[string]int)
 
 	for index, field := range row {
 		trimmedField := utils.Trim(field)
-		if utils.HasValue(trimmedField) { //TODO: e se todos os headers estiverem vazios ?
+		if utils.HasValue(trimmedField) {
 			headers[trimmedField] = index
 		}
 	}
-	return headers
+
+	if len(headers) == 0 {
+		return headers, errors.New("empty headers in the csv")
+	}
+
+	return headers, nil
 }

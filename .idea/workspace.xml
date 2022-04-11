@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C12 - Refactoring, removing todos, documenting parser">
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C13 - Validating config input file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/samples/roster1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/samples/roster1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/employee.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/employee.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/fields.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fields.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parser.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +97,8 @@
     <MESSAGE value="C10- removing requiredfields" />
     <MESSAGE value="C11 - Fixing bugs, sorting correctly, storing files on disk" />
     <MESSAGE value="C12 - Refactoring, removing todos, documenting parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="C12 - Refactoring, removing todos, documenting parser" />
+    <MESSAGE value="C13 - Validating config input file" />
+    <option name="LAST_COMMIT_MESSAGE" value="C13 - Validating config input file" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -110,13 +113,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
-          <line>37</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/validations/fieldsValidation.go</url>
-          <line>9</line>
-          <option name="timeStamp" value="65" />
+          <line>193</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
