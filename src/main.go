@@ -106,13 +106,10 @@ func main() {
 	f, err := os.Open(csvFilePath)
 
 	if err != nil {
-		log.Fatal(err) // TODO: melhorar log
+		log.Fatalf("Error opening the file: %s", err)
 	}
 	defer f.Close()
 
-	// TODO: iterar sobre todos os arquivos dentro de uma pasta ?
-
-	//requiredFields := models.CreateFields() // TODO: load required fields from disk
 	fields := loadFieldsFromConfig(configFilePath)
 
 	employees := parser.Parse(f, fields)
@@ -125,7 +122,7 @@ func loadFieldsFromConfig(path string) models.Fields {
 	fileContent, err := ioutil.ReadFile(path)
 
 	if err != nil {
-		log.Fatal("error loading config file:", err)
+		log.Fatalf("Error loading config file: %s", err)
 	}
 
 	exampleFormat := `
@@ -177,18 +174,18 @@ Unique fields cannot be repeated in the csv, it must be unique
 
 func getInputFiles() (string, string) {
 
-	if len(os.Args) != 3 { // TODO: melhorar log fatal
+	/* if len(os.Args) != 3 { // TODO: melhorar log fatal
 		log.Fatal(`
-				Program with wrong usarge, the correct one is:
-					~$ go run src/main.go [csvFilePath] [configFilePath]
-				example:
-					~$ go run src/main.go samples/roster1.csv config/full_config.json
+		Program with wrong usage, the correct one is:
+			~$ go run src/main.go [csvFilePath] [configFilePath]
+		example:
+			~$ go run src/main.go samples/roster1.csv config/full_config.json
 				`)
 	}
 
-	return os.Args[1], os.Args[2]
-	/* return "/home/tarcisio/Documents/rain/csvparser/samples/roster2.csv",
-	"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"*/
+	return os.Args[1], os.Args[2]*/
+	return "/home/tarcisio/Documents/rain/csvparser/samples/test.csv",
+		"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"
 }
 
 func getNewCsvHeaders(employee models.Employee) []string {

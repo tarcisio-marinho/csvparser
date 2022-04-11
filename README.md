@@ -31,3 +31,5 @@ Tests:
 
 - cenários com headers inválidos, vazios, alguns vazios, todos vazios
 - cenários dos campos do csv estarem vazios, inválidos, alguns vazios, etrc
+- cenários do input estar invalido, não tiver campos unique, não tiver campos required
+- cenários onde o arquivo ou a pasta de saida já existam

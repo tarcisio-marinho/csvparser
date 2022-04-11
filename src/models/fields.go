@@ -34,7 +34,6 @@ func CreateFieldsFromConfig(data []byte) (Fields, error) {
 				))
 		}
 	}
-	// TODO: validar se todos os campos do unique estão presentes no required fields
 
 	return fields, nil
 }

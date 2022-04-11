@@ -31,7 +31,7 @@ func Trim(s string) string {
 	return trimmed
 }
 
-func SortMapByKey(unsortedMap map[string]int, reference []string) []int {
+func SortMap(unsortedMap map[string]int, reference []string) []int {
 
 	var newOrder []int
 	for _, value := range reference {
