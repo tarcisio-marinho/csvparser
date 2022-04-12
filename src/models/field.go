@@ -24,7 +24,6 @@ func (f Field) GetName() string {
 	return f.Name[0]
 }
 
-//TODO: e se o campo estiver vazio ? ""
 func (f Field) IsValid() bool {
 	if len(f.Name) == 0 {
 		return false

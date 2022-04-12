@@ -127,7 +127,6 @@ func TestEmployee_SetIncorrect(t *testing.T) {
 		expectedMessage string
 		expectedBool    bool
 	}{
-		// TODO: Add test cases.
 		{
 			"set incorrect right",
 			fields{
