@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C16 - Creating README">
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C18 - Refactoring main, inputOutput">
+      <change afterPath="$PROJECT_DIR$/src/models/employee_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/employee.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/employee.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,26 +56,80 @@
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Parser" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="go build csvparser/src" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.employee_test.go">
+    <configuration name="TestEmployee_IsCorrect/Incorrect_employee in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/src/models" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src" />
+      <package value="csvparser/src/models" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestEmployee_IsCorrect\E$/^\QIncorrect_employee\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestEmployee_SetCorrect in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="csvparser" />
+      <working_directory value="$PROJECT_DIR$/src/models" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="csvparser/src/models" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestEmployee_SetCorrect\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestEmployee_SetCorrect/Set_correct_if_yet_setted in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="csvparser" />
+      <working_directory value="$PROJECT_DIR$/src/models" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="csvparser/src/models" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestEmployee_SetCorrect\E$/^\QSet_correct_if_yet_setted\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestEmployee_SetIncorrect in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="csvparser" />
+      <working_directory value="$PROJECT_DIR$/src/models" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="csvparser/src/models" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestEmployee_SetIncorrect\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="employee_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="csvparser" />
+      <working_directory value="$PROJECT_DIR$/src/models" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="csvparser" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/src/models/employee_test.go" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build csvparser/src" />
+        <item itemvalue="Go Test.employee_test.go" />
+        <item itemvalue="Go Test.TestEmployee_SetIncorrect in csvparser/src/models" />
+        <item itemvalue="Go Test.TestEmployee_SetCorrect in csvparser/src/models" />
+        <item itemvalue="Go Test.TestEmployee_SetCorrect/Set_correct_if_yet_setted in csvparser/src/models" />
+        <item itemvalue="Go Test.TestEmployee_IsCorrect/Incorrect_employee in csvparser/src/models" />
       </list>
     </recent_temporary>
   </component>
@@ -102,7 +157,8 @@
     <MESSAGE value="C14 - fixing all empty headers in csv" />
     <MESSAGE value="C15 - Refactoring error return from parser, TODOs" />
     <MESSAGE value="C16 - Creating README" />
-    <option name="LAST_COMMIT_MESSAGE" value="C16 - Creating README" />
+    <MESSAGE value="C18 - Refactoring main, inputOutput" />
+    <option name="LAST_COMMIT_MESSAGE" value="C18 - Refactoring main, inputOutput" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -124,6 +180,11 @@
           <url>file://$PROJECT_DIR$/src/main.go</url>
           <line>22</line>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/models/employee.go</url>
+          <line>20</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

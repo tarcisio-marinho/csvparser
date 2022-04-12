@@ -32,15 +32,3 @@ func CreateEmployee() Employee {
 func (e Employee) IsCorrect() bool {
 	return e.Correct.IsCorrect
 }
-
-/* DEPRECATED
-func (e Employee) IsCorrect() bool {
-	for _, data := range e.Data {
-		if !utils.HasValue(data) {
-			return false
-		}
-	}
-
-	return true
-}
-*/
