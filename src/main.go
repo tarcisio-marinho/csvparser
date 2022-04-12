@@ -181,7 +181,7 @@ Unique fields cannot be repeated in the csv, it must be unique
 
 func getInputFiles() (string, string) {
 
-	/* if len(os.Args) != 3 {
+	if len(os.Args) != 3 {
 		log.Fatal(`
 		Program with wrong usage, the correct one is:
 			~$ go run src/main.go [csvFilePath] [configFilePath]
@@ -190,9 +190,10 @@ func getInputFiles() (string, string) {
 				`)
 	}
 
-	return os.Args[1], os.Args[2]*/
-	return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
-		"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"
+	return os.Args[1], os.Args[2]
+
+	/*return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
+	"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"*/
 }
 
 func getNewCsvHeaders(employee models.Employee) []string {
