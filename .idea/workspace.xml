@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C16 - Creating README">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rain CSV Parser_v4.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Rain_CSV_Parser_v4.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +57,11 @@
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Parser" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="go build csvparser/src" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
@@ -107,18 +111,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/utils/utils.go</url>
+          <url>file://$PROJECT_DIR$/src/Parser/utils/utils.go</url>
           <line>35</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
+          <url>file://$PROJECT_DIR$/src/Parser/parser/parser.go</url>
           <line>206</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/main.go</url>
-          <line>115</line>
+          <line>22</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
