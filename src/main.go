@@ -53,7 +53,7 @@ func generateOutputFiles(originalFile string, employees []models.Employee) {
 			log.Printf("Correct employee: %s", employee.Data)
 			correctEmployees = append(correctEmployees, employee)
 		} else {
-			log.Printf("wrong employee: %s, reason: %s", employee.Data, employee.Correct.Reason)
+			log.Printf("Wrong employee: %s, reason: %s", employee.Data, employee.Correct.Reason)
 			wrongEmployees = append(wrongEmployees, employee)
 		}
 	}
@@ -95,6 +95,7 @@ func storeFile(filepath string, employees []models.Employee) {
 		csvWriter.Write(row)
 	}
 
+	log.Printf("Output file: %s created", filepath)
 	csvWriter.Flush()
 	defer csvFile.Close()
 }
@@ -112,12 +113,18 @@ func main() {
 
 	fields := loadFieldsFromConfig(configFilePath)
 
-	employees := parser.Parse(f, fields)
+	employees, err := parser.Parse(f, fields)
+
+	if err != nil {
+		log.Printf("Parser error: %s", err)
+		return
+	}
 
 	generateOutputFiles(csvFilePath, employees)
+
+	log.Println("DONE")
 }
 
-// TODO: validar arquivo de input -> validar se os arrays estão preenchidos
 func loadFieldsFromConfig(path string) models.Fields {
 	fileContent, err := ioutil.ReadFile(path)
 

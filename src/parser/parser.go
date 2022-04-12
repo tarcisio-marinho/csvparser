@@ -17,35 +17,47 @@ import (
 // Parse receives the io.Reader and the models.Fields, which are the required fields and unique fields.
 //
 // Parse will output a list of employees.
-func Parse(f io.Reader, fields models.Fields) []models.Employee {
+func Parse(f io.Reader, fields models.Fields) ([]models.Employee, error) {
 
+	log.Println("Validating required and unique fields")
 	err := validations.ValidateFields(fields)
 	if err != nil {
-		log.Fatal("erro validating fields: ", err) // TODO: retornar error para cima
+		log.Printf("Error validating fields: %s", err)
+		return nil, err
 	}
 
 	csvReader := csv.NewReader(f)
 	firstRow, err := csvReader.Read()
 
 	if err != nil {
-		log.Fatal("csv file wihtout header, found: ", err) // TODO: retornar error para cima
+		log.Printf("Csv file wihtout header, found: %s", err)
+		return nil, err
 	}
 
-	headers, err := getCsvHeadersIdx(firstRow) // TODO: validar a saida dos headers, para ver se não tem erro
+	log.Println("Parsing the csv headers")
+	headers, err := getCsvHeadersIdx(firstRow)
 
 	if err != nil {
-		log.Fatal(err) // TODO: retornar error para cima
+		log.Println(err)
+		return nil, err
 	}
 
+	log.Println("Getting the required fields indexes")
 	reqFieldsIdxs, err := getRequiredFieldsIndex(headers, fields.RequiredFields)
 
 	if err != nil {
-		log.Fatal(err) // TODO: retornar error para cima
+		log.Println(err)
+		return nil, err
 	}
 
-	employees := getEmployees(csvReader, reqFieldsIdxs, fields.GetUniqueFieldsDict())
+	log.Println("Getting employees list")
+	employees, err := getEmployees(csvReader, reqFieldsIdxs, fields.GetUniqueFieldsDict())
 
-	return employees
+	if err != nil {
+		return nil, err
+	}
+
+	return employees, nil
 }
 
 // getRequiredFieldsIndex gets the index in the csv for each required field
@@ -116,7 +128,7 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 // and checks duplicated fields by the configured models.UniqueFields
 //
 // outputs a list of models.Employee
-func getEmployees(csvReader *csv.Reader, fields []models.FieldIndex, uniqueFields models.UniqueFields) []models.Employee {
+func getEmployees(csvReader *csv.Reader, fields []models.FieldIndex, uniqueFields models.UniqueFields) ([]models.Employee, error) {
 	employees := make([]models.Employee, 0)
 
 	// TODO: testar cenário que a row não tem um dos campos, campos a menos, campos a mais
@@ -127,7 +139,8 @@ func getEmployees(csvReader *csv.Reader, fields []models.FieldIndex, uniqueField
 			break
 		}
 		if err != nil {
-			log.Fatal("Error reading the csv", err) // TODO: retornar error para cima
+			log.Printf("Error reading the csv: %s", err)
+			return nil, err
 		}
 
 		employee := models.CreateEmployee()
@@ -155,7 +168,7 @@ func getEmployees(csvReader *csv.Reader, fields []models.FieldIndex, uniqueField
 		employees = append(employees, employee)
 	}
 
-	return employees
+	return employees, nil
 }
 
 // insertEmpAndCheckUniquiness updates the employee data, marks it as correct or incorrect
