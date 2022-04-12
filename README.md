@@ -1,9 +1,10 @@
 # CSV Parser
 Rain CSV Parser challenge
 
-CSV Parser is an CLI app that parses CSV files and outputs two files, one with the correct data and another with bad data
+CSV Parser is an CLI app that parses CSV files and outputs two files, one with the correct data and another with bad data.
 
-##Run
+the project specification can be found in: [Rain_CSV_Parser_v4.docx](Rain_CSV_Parser_v4.docx)
+## Run
 
 ``go run src/main.go samples/roster1.csv config/full_config.json``
 
@@ -110,6 +111,11 @@ csv:
 
 the csv has a duplicated email ``tarcisio_marinho09@hotmail.com`` 
 
+
+## Parser
+
+the parser library can be used regardless the input source, 
+it can be used in APIs, web apps, CLIs, and so on.
 
 
 TODOs:
