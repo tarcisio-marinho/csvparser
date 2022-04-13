@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C20 - Testing models">
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C21 - Testing unique fields">
+      <change afterPath="$PROJECT_DIR$/src/io/inputOutput_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/validations/fieldsValidation_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/uniqueFields_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/uniqueFields_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/inputOutput.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/inputOutput.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,73 +64,74 @@
       <recent name="$PROJECT_DIR$/src/Parser" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestCreateUniqueFields in csvparser/src/models">
-    <configuration name="TestCreateFieldsFromConfig in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestValidateFields in csvparser/src/validations">
+    <configuration name="TestValidateFields in csvparser/src/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/models" />
+      <working_directory value="$PROJECT_DIR$/src/validations" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/models" />
+      <package value="csvparser/src/validations" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestCreateFieldsFromConfig\E$" />
+      <pattern value="^\QTestValidateFields\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestCreateFieldsFromConfig/empty_data,_empty_byte_array#01 in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestValidateFields/nil_required_and_unique in csvparser/src/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/models" />
+      <working_directory value="$PROJECT_DIR$/src/validations" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/models" />
+      <package value="csvparser/src/validations" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestCreateFieldsFromConfig\E$/^\Qempty_data,_empty_byte_array#01\E$" />
+      <pattern value="^\QTestValidateFields\E$/^\Qnil_required_and_unique\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestCreateUniqueFields in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestValidateFields/nil_required_and_unique#01 in csvparser/src/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/models" />
+      <working_directory value="$PROJECT_DIR$/src/validations" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/models" />
+      <package value="csvparser/src/validations" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestCreateUniqueFields\E$" />
+      <pattern value="^\QTestValidateFields\E$/^\Qnil_required_and_unique#01\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestField_IsValid/invalid_with_only_spaces_multiple_column in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestValidateFields/valid_required_and_invalid_unique in csvparser/src/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/models" />
+      <working_directory value="$PROJECT_DIR$/src/validations" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/models" />
+      <package value="csvparser/src/validations" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestField_IsValid\E$/^\Qinvalid_with_only_spaces_multiple_column\E$" />
+      <pattern value="^\QTestValidateFields\E$/^\Qvalid_required_and_invalid_unique\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="fields_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestValidateFields/valid_required_and_unique#01 in csvparser/src/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/models" />
+      <working_directory value="$PROJECT_DIR$/src/validations" />
       <root_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <package value="csvparser" />
+      <kind value="PACKAGE" />
+      <package value="csvparser/src/validations" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/models/fields_test.go" />
+      <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
+      <pattern value="^\QTestValidateFields\E$/^\Qvalid_required_and_unique#01\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestCreateUniqueFields in csvparser/src/models" />
-        <item itemvalue="Go Test.fields_test.go" />
-        <item itemvalue="Go Test.TestCreateFieldsFromConfig in csvparser/src/models" />
-        <item itemvalue="Go Test.TestCreateFieldsFromConfig/empty_data,_empty_byte_array#01 in csvparser/src/models" />
-        <item itemvalue="Go Test.TestField_IsValid/invalid_with_only_spaces_multiple_column in csvparser/src/models" />
+        <item itemvalue="Go Test.TestValidateFields in csvparser/src/validations" />
+        <item itemvalue="Go Test.TestValidateFields/nil_required_and_unique#01 in csvparser/src/validations" />
+        <item itemvalue="Go Test.TestValidateFields/nil_required_and_unique in csvparser/src/validations" />
+        <item itemvalue="Go Test.TestValidateFields/valid_required_and_unique#01 in csvparser/src/validations" />
+        <item itemvalue="Go Test.TestValidateFields/valid_required_and_invalid_unique in csvparser/src/validations" />
       </list>
     </recent_temporary>
   </component>
@@ -160,7 +162,8 @@
     <MESSAGE value="C18 - Refactoring main, inputOutput" />
     <MESSAGE value="C19 - Employee testing" />
     <MESSAGE value="C20 - Testing models" />
-    <option name="LAST_COMMIT_MESSAGE" value="C20 - Testing models" />
+    <MESSAGE value="C21 - Testing unique fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="C21 - Testing unique fields" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -184,16 +187,6 @@
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/models/employee.go</url>
-          <line>20</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/models/field.go</url>
-          <line>15</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/models/fields_test.go</url>
           <line>138</line>
           <option name="timeStamp" value="85" />
@@ -202,6 +195,21 @@
           <url>file://$PROJECT_DIR$/src/models/uniqueFields_test.go</url>
           <line>27</line>
           <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/io/inputOutput_test.go</url>
+          <line>110</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/io/inputOutput.go</url>
+          <line>49</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/validations/fieldsValidation_test.go</url>
+          <line>138</line>
+          <option name="timeStamp" value="89" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
