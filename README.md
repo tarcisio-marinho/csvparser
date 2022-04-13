@@ -151,6 +151,11 @@ APIs, CLIs, web apps and so on. The parser library is agnostic.
 Also I wanted it to be configurable, and extensible. Making easy to modify the required and unique fields (simply changing the configuration file)
 making easy to change, implement new features searchable fields (since we don't control the input csv's), and it's also easy to deploy new configuration.
 
+The parser receives the interface ``io.Reader``, and the objects:`RequiredFields` and `UniqueFields`
+as input.
+
 ## Next steps
-I would evolve the code implementing tests for the `io` package
-which is 
+I would evolve the code by:
+- Implementing tests for covering 100% of the `io` package
+- Implementing new validation rules such as an email validation, salary validation, and so on
+- 
