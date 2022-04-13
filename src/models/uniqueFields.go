@@ -19,10 +19,7 @@ func (fields UniqueFields) AlreadyInserted(value string, fieldName string) bool 
 		if fieldName == uniqFieldName {
 			_, found := fieldDict[value]
 
-			if found {
-				return true
-			}
-			return false
+			return found
 		}
 	}
 	return false
@@ -30,8 +27,8 @@ func (fields UniqueFields) AlreadyInserted(value string, fieldName string) bool 
 
 func CreateUniqueFields(fields []string) UniqueFields {
 	uniqueFields := UniqueFields{Fields: make(map[string]map[string]bool)}
-	for _, field := range fields {
-		uniqueFields.Fields[field] = make(map[string]bool, 0)
+	for _, fieldName := range fields {
+		uniqueFields.Fields[fieldName] = make(map[string]bool, 0)
 	}
 
 	return uniqueFields

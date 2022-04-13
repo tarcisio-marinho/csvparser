@@ -121,6 +121,14 @@ it can be used in APIs, web apps, CLIs, and so on.
 
 ``go test ./... --cover``
 
+## The architecture
+I've chosen an this architecture because I wanted this code to be reusable
+CLI, web apps, APIs, and so on. The parser library is agnostic.
+also I wanted to be configurable, and extensible. Making easy to modify the required and unique fields (simply changing the configuration file)
+making easy to change, implement new features , it's also easy to deploy.
+
+## Next steps
+
 TODOs:
 - revisitar todo o código
 - implementar os testes unitários

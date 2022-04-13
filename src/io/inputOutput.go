@@ -172,17 +172,17 @@ Unique fields cannot be repeated in the csv, it must be unique
 
 func GetInputFiles() (string, string) {
 
-	/*	if len(os.Args) != 3 {
-			log.Fatal(`
+	if len(os.Args) != 3 {
+		log.Fatal(`
 			Program with wrong usage, the correct one is:
 				~$ go run src/main.go [csvFilePath] [configFilePath]
 			example:
 				~$ go run src/main.go samples/roster1.csv config/full_config.json
 					`)
-		}
+	}
 
-		return os.Args[1], os.Args[2] */
+	return os.Args[1], os.Args[2]
 
-	return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
-		"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"
+	/*return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
+	"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"*/
 }
