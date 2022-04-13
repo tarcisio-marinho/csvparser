@@ -16,7 +16,7 @@ logs are outputed in the terminal:
 
 ![](screenshots/logs-success.png)
 
-and the output files are inserted into OUTPUT dir:
+and the output files are inserted into `OUTPUT` dir:
 
 ![](screenshots/outputdir.png)
 
@@ -149,8 +149,7 @@ go test ./... --cover
 I've chosen an this architecture because I wanted this code to be reusable for
 APIs, CLIs, web apps and so on. The parser library is agnostic.
 Also, I wanted it to be configurable, and extensible. Making easy to modify the required and unique fields (simply changing the configuration file)
-making easy to change, implement new features searchable fields (since we don't control the input csv's), and it's also easy to deploy new configuration.
-
+making easy to change, implement new features and new searchable fields (since we don't control the csvs input), and it's also easy to deploy new configurations.
 
 
 ## Next steps
