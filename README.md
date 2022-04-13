@@ -124,8 +124,8 @@ the csv has a duplicated email ``tarcisio_marinho09@hotmail.com``
 ## Parser
 
 The parser library can be used regardless the input source, 
-it can be used in APIs, web apps, CLIs, and so on.
-
+it can be used in APIs, web apps, CLIs, and so on. It receives the interface ``io.Reader``, and the objects:`RequiredFields` and `UniqueFields`
+as input.
 ## Testing
 Run unit tests:
 
@@ -148,14 +148,15 @@ go test ./... --cover
 ## The architecture
 I've chosen an this architecture because I wanted this code to be reusable for
 APIs, CLIs, web apps and so on. The parser library is agnostic.
-Also I wanted it to be configurable, and extensible. Making easy to modify the required and unique fields (simply changing the configuration file)
+Also, I wanted it to be configurable, and extensible. Making easy to modify the required and unique fields (simply changing the configuration file)
 making easy to change, implement new features searchable fields (since we don't control the input csv's), and it's also easy to deploy new configuration.
 
-The parser receives the interface ``io.Reader``, and the objects:`RequiredFields` and `UniqueFields`
-as input.
+
 
 ## Next steps
 I would evolve the code by:
 - Implementing tests for covering 100% of the `io` package
 - Implementing new validation rules such as an email validation, salary validation, and so on
-- 
+- Read and parse all `.csv` inside an directory
+- Make the output as `JSON` format as well, so it can be used as input for another systems, facilitating integration
+- Handling csv rows concurrently
