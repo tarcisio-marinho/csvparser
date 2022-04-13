@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C19 - Employee testing">
-      <change afterPath="$PROJECT_DIR$/src/models/field_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/fields_test.go" afterDir="false" />
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C20 - Testing models">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/employee_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/employee_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/uniqueFields_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/uniqueFields_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,7 @@
       <recent name="$PROJECT_DIR$/src/Parser" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.fields_test.go">
+  <component name="RunManager" selected="Go Test.TestCreateUniqueFields in csvparser/src/models">
     <configuration name="TestCreateFieldsFromConfig in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
       <working_directory value="$PROJECT_DIR$/src/models" />
@@ -90,7 +88,7 @@
       <pattern value="^\QTestCreateFieldsFromConfig\E$/^\Qempty_data,_empty_byte_array#01\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestField_GetName/testing_multiple_column_empty_array in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreateUniqueFields in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
       <working_directory value="$PROJECT_DIR$/src/models" />
       <root_directory value="$PROJECT_DIR$" />
@@ -99,7 +97,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestField_GetName\E$/^\Qtesting_multiple_column_empty_array\E$" />
+      <pattern value="^\QTestCreateUniqueFields\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestField_IsValid/invalid_with_only_spaces_multiple_column in csvparser/src/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -127,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestCreateUniqueFields in csvparser/src/models" />
         <item itemvalue="Go Test.fields_test.go" />
         <item itemvalue="Go Test.TestCreateFieldsFromConfig in csvparser/src/models" />
         <item itemvalue="Go Test.TestCreateFieldsFromConfig/empty_data,_empty_byte_array#01 in csvparser/src/models" />
         <item itemvalue="Go Test.TestField_IsValid/invalid_with_only_spaces_multiple_column in csvparser/src/models" />
-        <item itemvalue="Go Test.TestField_GetName/testing_multiple_column_empty_array in csvparser/src/models" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +159,8 @@
     <MESSAGE value="C16 - Creating README" />
     <MESSAGE value="C18 - Refactoring main, inputOutput" />
     <MESSAGE value="C19 - Employee testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="C19 - Employee testing" />
+    <MESSAGE value="C20 - Testing models" />
+    <option name="LAST_COMMIT_MESSAGE" value="C20 - Testing models" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -198,6 +197,11 @@
           <url>file://$PROJECT_DIR$/src/models/fields_test.go</url>
           <line>138</line>
           <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/models/uniqueFields_test.go</url>
+          <line>27</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

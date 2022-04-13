@@ -6,23 +6,37 @@ import (
 )
 
 func TestCreateUniqueFields(t *testing.T) {
-	type args struct {
-		fields []string
-	}
 	tests := []struct {
-		name string
-		args args
-		want UniqueFields
+		name   string
+		fields []string
+		want   UniqueFields
 	}{
-		// TODO: Add test cases.
+		{
+			name:   "two unique fields",
+			fields: []string{"field1", "field2"},
+			want:   UniqueFields{Fields: uniqueFieldsMock([]string{"field1", "field2"})},
+		},
+		{
+			name:   "empty unique fields",
+			fields: nil,
+			want:   UniqueFields{Fields: uniqueFieldsMock(nil)},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := CreateUniqueFields(tt.args.fields); !reflect.DeepEqual(got, tt.want) {
+			got := CreateUniqueFields(tt.fields)
+			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("CreateUniqueFields() = %v, want %v", got, tt.want)
 			}
 		})
 	}
+}
+func uniqueFieldsMock(fields []string) map[string]map[string]bool {
+	uniqueFields := make(map[string]map[string]bool)
+	for _, field := range fields {
+		uniqueFields[field] = make(map[string]bool, 0)
+	}
+	return uniqueFields
 }
 
 func TestUniqueFields_AlreadyInserted(t *testing.T) {

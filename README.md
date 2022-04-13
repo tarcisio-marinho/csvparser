@@ -117,6 +117,9 @@ the csv has a duplicated email ``tarcisio_marinho09@hotmail.com``
 the parser library can be used regardless the input source, 
 it can be used in APIs, web apps, CLIs, and so on.
 
+## Testing
+
+``go test ./... --cover``
 
 TODOs:
 - revisitar todo o código
