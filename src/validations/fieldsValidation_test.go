@@ -42,7 +42,6 @@ func getRequiredFieldsMock(empty int) map[string][]models.Field {
 			},
 		}
 	} else if empty == 2 {
-		reqFields := make(map[string][]models.Field)
 		reqFields["email"] = []models.Field{
 			{
 				Name:        []string{},
@@ -50,15 +49,26 @@ func getRequiredFieldsMock(empty int) map[string][]models.Field {
 			},
 		}
 
-	} else {
-		reqFields := make(map[string][]models.Field)
+	} else if empty == 3 {
 		reqFields["email"] = []models.Field{
 			{
 				Name:        []string{"", " ", "sadf"},
 				MultipleCol: false,
 			},
 		}
+	} else if empty == 4 {
+		reqFields["email"] = nil
+
+	} else if empty == 5 {
+		reqFields["email"] = []models.Field{
+			{
+				Name:        []string{},
+				MultipleCol: false,
+			},
+		}
+
 	}
+
 	return reqFields
 
 }
@@ -130,6 +140,22 @@ func TestValidateFields(t *testing.T) {
 			fields: models.Fields{
 				RequiredFields: getRequiredFieldsMock(3),
 				UniqueFields:   getUniqueFieldsMock("t1", "t2"),
+			},
+			wantErr: true,
+		},
+		{
+			name: "required field with nil data",
+			fields: models.Fields{
+				RequiredFields: getRequiredFieldsMock(4),
+				UniqueFields:   getUniqueFieldsMock("email", "id"),
+			},
+			wantErr: true,
+		},
+		{
+			name: "required field with empty field",
+			fields: models.Fields{
+				RequiredFields: getRequiredFieldsMock(5),
+				UniqueFields:   getUniqueFieldsMock("email", "id"),
 			},
 			wantErr: true,
 		},
