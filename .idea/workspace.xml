@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C27 - Testing validation 100%">
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C28 - Testing models 95%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/inputOutput.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/inputOutput.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/uniqueFields_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/uniqueFields_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,8 @@
     <MESSAGE value="C25 - Testing parser 100%" />
     <MESSAGE value="C26 - Testing utils" />
     <MESSAGE value="C27 - Testing validation 100%" />
-    <option name="LAST_COMMIT_MESSAGE" value="C27 - Testing validation 100%" />
+    <MESSAGE value="C28 - Testing models 95%" />
+    <option name="LAST_COMMIT_MESSAGE" value="C28 - Testing models 95%" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
