@@ -131,8 +131,6 @@ func getRequiredFieldsIndex(headers map[string]int, requiredFields map[string][]
 func getEmployees(csvReader *csv.Reader, fields []models.FieldIndex, uniqueFields models.UniqueFields) ([]models.Employee, error) {
 	employees := make([]models.Employee, 0)
 
-	// TODO: testar cenário que a row não tem um dos campos, campos a menos, campos a mais
-
 	for {
 		row, err := csvReader.Read()
 		if err == io.EOF {

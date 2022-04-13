@@ -115,7 +115,7 @@ csv:
 | :---: |:---:| :---: |
 | tarcisio |  3  | tarcisio_marinho09@hotmail.com |
 | joao | 32  | joao@hotmail.com |
-| maria |  3  | tarcisio_marinho09@hotmail.com |
+| maria | 31  | tarcisio_marinho09@hotmail.com |
 
 
 the csv has a duplicated email ``tarcisio_marinho09@hotmail.com`` 
