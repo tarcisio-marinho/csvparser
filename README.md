@@ -127,11 +127,15 @@ The parser library can be used regardless the input source,
 it can be used in APIs, web apps, CLIs, and so on. It receives the interface ``io.Reader``, and the objects:`RequiredFields` and `UniqueFields`
 as input.
 ## Testing
+
 Run unit tests:
 
 ```console
 go test ./... --cover
 ```
+
+103 unit tests where implemented. See below:
+
 
 ![](screenshots/tests1.png)
 
@@ -146,10 +150,10 @@ go test ./... --cover
     ok  	csvparser/src/validations	(cached)	coverage: 100.0% of statements
 
 ## The architecture
-I've chosen an this architecture because I wanted this code to be reusable for
+I've chosen this architecture because I wanted this code to be reusable for
 APIs, CLIs, web apps and so on. The parser library is agnostic.
 Also, I wanted it to be configurable, and extensible. Making easy to modify the required and unique fields (simply changing the configuration file)
-making easy to change, implement new features and new searchable fields (since we don't control the csvs input), and it's also easy to deploy new configurations.
+making easy to change, implement new features and new searchable fields (since we don't control the CSVs input), and it's also easy to deploy new configurations.
 
 
 ## Next steps
