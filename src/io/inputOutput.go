@@ -182,7 +182,4 @@ func GetInputFiles() (string, string) {
 	}
 
 	return os.Args[1], os.Args[2]
-
-	/*return "/home/tarcisio/Documents/rain/csvparser/samples/roster1.csv",
-	"/home/tarcisio/Documents/rain/csvparser/config/full_config.json"*/
 }

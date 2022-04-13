@@ -40,25 +40,43 @@ func uniqueFieldsMock(fields []string) map[string]map[string]bool {
 }
 
 func TestUniqueFields_AlreadyInserted(t *testing.T) {
-	type fields1 struct {
-		Fields map[string]map[string]bool
-	}
 	type args struct {
 		value     string
 		fieldName string
 	}
 	tests := []struct {
 		name   string
-		fields fields1
+		Fields map[string]map[string]bool
 		args   args
 		want   bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "already inserted",
+			Fields: map[string]map[string]bool{
+				"test": {"t": true},
+			},
+			args: args{
+				value:     "e",
+				fieldName: "test",
+			},
+			want: false,
+		},
+		{
+			name: "it was not inserted",
+			Fields: map[string]map[string]bool{
+				"test": {"t": true},
+			},
+			args: args{
+				value:     "e",
+				fieldName: "teste",
+			},
+			want: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			fields := UniqueFields{
-				Fields: tt.fields.Fields,
+				Fields: tt.Fields,
 			}
 			if got := fields.AlreadyInserted(tt.args.value, tt.args.fieldName); got != tt.want {
 				t.Errorf("AlreadyInserted() = %v, want %v", got, tt.want)
@@ -69,7 +87,6 @@ func TestUniqueFields_AlreadyInserted(t *testing.T) {
 
 func TestUniqueFields_InsertField(t *testing.T) {
 	type fields1 struct {
-		Fields map[string]map[string]bool
 	}
 	type args struct {
 		value     string
@@ -77,15 +94,34 @@ func TestUniqueFields_InsertField(t *testing.T) {
 	}
 	tests := []struct {
 		name   string
-		fields fields1
+		Fields map[string]map[string]bool
 		args   args
 	}{
-		// TODO: Add test cases.
+		{
+			name: "inserting new field",
+			Fields: map[string]map[string]bool{
+				"test": {"t": true},
+			},
+			args: args{
+				value:     "e",
+				fieldName: "test",
+			},
+		},
+		{
+			name: "inserting new field",
+			Fields: map[string]map[string]bool{
+				"test": {"t": true},
+			},
+			args: args{
+				value:     "e",
+				fieldName: "teste",
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			fields := &UniqueFields{
-				Fields: tt.fields.Fields,
+				Fields: tt.Fields,
 			}
 			fields.InsertField(tt.args.value, tt.args.fieldName)
 		})
