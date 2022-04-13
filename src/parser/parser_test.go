@@ -9,6 +9,38 @@ import (
 	"testing"
 )
 
+func getRequiredFieldsMock() map[string][]models.Field {
+	reqFields := make(map[string][]models.Field)
+
+	reqFields["email"] = []models.Field{
+		{
+			Name:        []string{"email"},
+			MultipleCol: false,
+		},
+	}
+
+	reqFields["id"] = []models.Field{
+		{
+			Name:        []string{"id"},
+			MultipleCol: false,
+		},
+	}
+
+	reqFields["name"] = []models.Field{
+		{
+			Name:        []string{"fname", "lname"},
+			MultipleCol: true,
+		},
+		{
+			Name:        []string{"name"},
+			MultipleCol: false,
+		},
+	}
+
+	return reqFields
+
+}
+
 func TestParse(t *testing.T) {
 	type args struct {
 		f      io.Reader
@@ -20,7 +52,146 @@ func TestParse(t *testing.T) {
 		want    []models.Employee
 		wantErr bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "parsing valid csv with headers and body with multicolumn",
+			args: args{
+				f: bytes.NewBuffer([]byte(`
+fname, lname,email,salary,id
+John,Doe,doe@test.com,$10.00,1
+Mary,Jane,Mary@tes.com,$15,2`)),
+				fields: models.Fields{
+					RequiredFields: getRequiredFieldsMock(),
+					UniqueFields:   []string{"email", "id"},
+				},
+			},
+			want: []models.Employee{
+				{
+					Data: map[string]string{"name": "John Doe",
+						"email": "doe@test.com",
+						"id":    "1"},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+				{
+					Data: map[string]string{"name": "Mary Jane",
+						"email": "Mary@tes.com",
+						"id":    "2"},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+			},
+			wantErr: false,
+		},
+		{
+			name: "parsing valid csv with headers and body without multicolumn",
+			args: args{
+				f: bytes.NewBuffer([]byte(`
+name,email,salary,id
+John Doe,doe@test.com,$10.00,1
+Mary Jane,Mary@tes.com,$15,2`)),
+				fields: models.Fields{
+					RequiredFields: getRequiredFieldsMock(),
+					UniqueFields:   []string{"email", "id"},
+				},
+			},
+			want: []models.Employee{
+				{
+					Data: map[string]string{"name": "John Doe",
+						"email": "doe@test.com",
+						"id":    "1"},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+				{
+					Data: map[string]string{"name": "Mary Jane",
+						"email": "Mary@tes.com",
+						"id":    "2"},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+			},
+			wantErr: false,
+		},
+		{
+			name: "unique field not present in required fields",
+			args: args{
+				f: bytes.NewBuffer([]byte(`
+fname, lname,email,salary,id
+John,Doe,doe@test.com,$10.00,1
+Mary,Jane,Mary@tes.com,$15,2`)),
+				fields: models.Fields{
+					RequiredFields: getRequiredFieldsMock(),
+					UniqueFields:   []string{"asdf", "id"},
+				},
+			},
+			want:    nil,
+			wantErr: true,
+		},
+		{
+			name: "csv without header",
+			args: args{
+				f: bytes.NewBuffer([]byte(``)),
+				fields: models.Fields{
+					RequiredFields: getRequiredFieldsMock(),
+					UniqueFields:   []string{"email", "id"},
+				},
+			},
+			want:    nil,
+			wantErr: true,
+		},
+		{
+			name: "csv headers empty",
+			args: args{
+				f: bytes.NewBuffer([]byte(`
+,,,,
+John,Doe,doe@test.com,$10.00,1
+Mary,Jane,Mary@tes.com,$15,2`)),
+				fields: models.Fields{
+					RequiredFields: getRequiredFieldsMock(),
+					UniqueFields:   []string{"email", "id"},
+				},
+			},
+			want:    nil,
+			wantErr: true,
+		},
+		{
+			name: "csv with missing required headers",
+			args: args{
+				f: bytes.NewBuffer([]byte(`
+name,data, salary,missingId
+John Doe,doe@test.com,$10.00,1
+Mary Jane,Mary@tes.com,$15,2`)),
+				fields: models.Fields{
+					RequiredFields: getRequiredFieldsMock(),
+					UniqueFields:   []string{"email", "id"},
+				},
+			},
+			want:    nil,
+			wantErr: true,
+		},
+		{
+			name: "csv with missing required headers",
+			args: args{
+				f: bytes.NewBuffer([]byte(`
+name,data, email,id
+John Doe,doe@test.com,$10.00
+Mary Jane,Mary@tes.com,$15,2`)),
+				fields: models.Fields{
+					RequiredFields: getRequiredFieldsMock(),
+					UniqueFields:   []string{"email", "id"},
+				},
+			},
+			want:    nil,
+			wantErr: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -359,6 +530,7 @@ func Test_getRequiredFieldsIndex(t *testing.T) {
 			},
 
 			want: []models.FieldIndex{
+
 				{
 					FieldName:   "email",
 					Index:       []int{1},
@@ -406,7 +578,7 @@ func Test_getRequiredFieldsIndex(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name:    "valid headers and requried fields",
+			name:    "invalid headers",
 			headers: map[string]int{"asd": 0, "fds": 1, "adsf": 2},
 			requiredFields: map[string][]models.Field{
 				"email": {

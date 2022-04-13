@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C23 - Testing parser">
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C24 - Testing parser getEmployee">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser/parser_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parser_test.go" afterDir="false" />
     </list>
@@ -62,8 +62,8 @@
       <recent name="$PROJECT_DIR$/src/Parser" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.Test_getEmployees/valid_multi_column in csvparser/src/parser">
-    <configuration name="Test_getEmployees in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.go test csvparser">
+    <configuration name="TestParse/csv_headers_empty in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
       <working_directory value="$PROJECT_DIR$/src/parser" />
       <root_directory value="$PROJECT_DIR$" />
@@ -72,10 +72,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_getEmployees\E$" />
+      <pattern value="^\QTestParse\E$/^\Qcsv_headers_empty\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_getEmployees/1_valid_employee_1_bad_employee in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestParse/csv_with_missing_required_headers in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
       <working_directory value="$PROJECT_DIR$/src/parser" />
       <root_directory value="$PROJECT_DIR$" />
@@ -84,10 +84,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_getEmployees\E$/^\Q1_valid_employee_1_bad_employee\E$" />
+      <pattern value="^\QTestParse\E$/^\Qcsv_with_missing_required_headers\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_getEmployees/all_empty_fields in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestParse/csv_with_missing_required_headers#01 in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
       <working_directory value="$PROJECT_DIR$/src/parser" />
       <root_directory value="$PROJECT_DIR$" />
@@ -96,10 +96,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_getEmployees\E$/^\Qall_empty_fields\E$" />
+      <pattern value="^\QTestParse\E$/^\Qcsv_with_missing_required_headers#01\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_getEmployees/duplicated_email_field in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_getRequiredFieldsIndex/valid_headers_and_requried_fields in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
       <working_directory value="$PROJECT_DIR$/src/parser" />
       <root_directory value="$PROJECT_DIR$" />
@@ -108,28 +108,26 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_getEmployees\E$/^\Qduplicated_email_field\E$" />
+      <pattern value="^\QTest_getRequiredFieldsIndex\E$/^\Qvalid_headers_and_requried_fields\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_getEmployees/valid_multi_column in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go test csvparser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/parser" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="csvparser/src/parser" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="csvparser" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_getEmployees\E$/^\Qvalid_multi_column\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.Test_getEmployees/valid_multi_column in csvparser/src/parser" />
-        <item itemvalue="Go Test.Test_getEmployees in csvparser/src/parser" />
-        <item itemvalue="Go Test.Test_getEmployees/all_empty_fields in csvparser/src/parser" />
-        <item itemvalue="Go Test.Test_getEmployees/duplicated_email_field in csvparser/src/parser" />
-        <item itemvalue="Go Test.Test_getEmployees/1_valid_employee_1_bad_employee in csvparser/src/parser" />
+        <item itemvalue="Go Test.go test csvparser" />
+        <item itemvalue="Go Test.Test_getRequiredFieldsIndex/valid_headers_and_requried_fields in csvparser/src/parser" />
+        <item itemvalue="Go Test.TestParse/csv_with_missing_required_headers#01 in csvparser/src/parser" />
+        <item itemvalue="Go Test.TestParse/csv_with_missing_required_headers in csvparser/src/parser" />
+        <item itemvalue="Go Test.TestParse/csv_headers_empty in csvparser/src/parser" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +162,8 @@
     <MESSAGE value="C22 - Testing fields validation" />
     <MESSAGE value="C22 - Testing some IO" />
     <MESSAGE value="C23 - Testing parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="C23 - Testing parser" />
+    <MESSAGE value="C24 - Testing parser getEmployee" />
+    <option name="LAST_COMMIT_MESSAGE" value="C24 - Testing parser getEmployee" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -214,33 +213,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/parser/parser_test.go</url>
-          <line>74</line>
+          <line>245</line>
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/parser/parser_test.go</url>
-          <line>78</line>
+          <line>249</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/parser/parser_test.go</url>
-          <line>539</line>
+          <line>711</line>
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
-          <line>75</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/parser/parser_test.go</url>
-          <line>322</line>
+          <line>493</line>
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
-          <line>135</line>
-          <option name="timeStamp" value="99" />
+          <line>140</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
+          <line>53</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/parser/parser.go</url>
+          <line>45</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
