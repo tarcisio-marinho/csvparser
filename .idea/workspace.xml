@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C24 - Testing parser getEmployee">
+    <list default="true" id="b89844a6-ecc5-4464-b601-834534f88a4f" name="Changes" comment="C25 - Testing parser 100%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parser_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parser_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,72 +63,74 @@
       <recent name="$PROJECT_DIR$/src/Parser" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.go test csvparser">
-    <configuration name="TestParse/csv_headers_empty in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestSortMap/1_testing_order#01 in csvparser/src/utils">
+    <configuration name="TestSortMap/1_testing_order in csvparser/src/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/parser" />
+      <working_directory value="$PROJECT_DIR$/src/utils" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/parser" />
+      <package value="csvparser/src/utils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestParse\E$/^\Qcsv_headers_empty\E$" />
+      <pattern value="^\QTestSortMap\E$/^\Q1_testing_order\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestParse/csv_with_missing_required_headers in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSortMap/1_testing_order#01 in csvparser/src/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/parser" />
+      <working_directory value="$PROJECT_DIR$/src/utils" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/parser" />
+      <package value="csvparser/src/utils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestParse\E$/^\Qcsv_with_missing_required_headers\E$" />
+      <pattern value="^\QTestSortMap\E$/^\Q1_testing_order#01\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestParse/csv_with_missing_required_headers#01 in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTrim/testing_encoded_string in csvparser/src/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/parser" />
+      <working_directory value="$PROJECT_DIR$/src/utils" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/parser" />
+      <package value="csvparser/src/utils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestParse\E$/^\Qcsv_with_missing_required_headers#01\E$" />
+      <pattern value="^\QTestTrim\E$/^\Qtesting_encoded_string\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_getRequiredFieldsIndex/valid_headers_and_requried_fields in csvparser/src/parser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTrim/testing_space_string#01 in csvparser/src/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$/src/parser" />
+      <working_directory value="$PROJECT_DIR$/src/utils" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="csvparser/src/parser" />
+      <package value="csvparser/src/utils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_getRequiredFieldsIndex\E$/^\Qvalid_headers_and_requried_fields\E$" />
+      <pattern value="^\QTestTrim\E$/^\Qtesting_space_string#01\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go test csvparser" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTrim/testing_uppercase_string in csvparser/src/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="csvparser" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <package value="csvparser" />
+      <working_directory value="$PROJECT_DIR$/src/utils" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="csvparser/src/utils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
+      <pattern value="^\QTestTrim\E$/^\Qtesting_uppercase_string\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.go test csvparser" />
-        <item itemvalue="Go Test.Test_getRequiredFieldsIndex/valid_headers_and_requried_fields in csvparser/src/parser" />
-        <item itemvalue="Go Test.TestParse/csv_with_missing_required_headers#01 in csvparser/src/parser" />
-        <item itemvalue="Go Test.TestParse/csv_with_missing_required_headers in csvparser/src/parser" />
-        <item itemvalue="Go Test.TestParse/csv_headers_empty in csvparser/src/parser" />
+        <item itemvalue="Go Test.TestSortMap/1_testing_order#01 in csvparser/src/utils" />
+        <item itemvalue="Go Test.TestSortMap/1_testing_order in csvparser/src/utils" />
+        <item itemvalue="Go Test.TestTrim/testing_encoded_string in csvparser/src/utils" />
+        <item itemvalue="Go Test.TestTrim/testing_uppercase_string in csvparser/src/utils" />
+        <item itemvalue="Go Test.TestTrim/testing_space_string#01 in csvparser/src/utils" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +166,8 @@
     <MESSAGE value="C22 - Testing some IO" />
     <MESSAGE value="C23 - Testing parser" />
     <MESSAGE value="C24 - Testing parser getEmployee" />
-    <option name="LAST_COMMIT_MESSAGE" value="C24 - Testing parser getEmployee" />
+    <MESSAGE value="C25 - Testing parser 100%" />
+    <option name="LAST_COMMIT_MESSAGE" value="C25 - Testing parser 100%" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

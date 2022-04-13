@@ -1,21 +1,8 @@
 package utils
 
 import (
-	"encoding/json"
-	"fmt"
 	"strings"
 )
-
-func Pprint(message string, obj interface{}) {
-
-	fieldsJson, err := json.MarshalIndent(obj, "", " ")
-
-	if err != nil {
-		fmt.Println(message)
-	}
-
-	fmt.Println(message, string(fieldsJson))
-}
 
 func HasValue(value string) bool {
 	return len(strings.TrimSpace(value)) != 0
