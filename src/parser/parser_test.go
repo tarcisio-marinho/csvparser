@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"bytes"
 	"csvparser/src/models"
 	"encoding/csv"
 	"io"
@@ -94,7 +95,227 @@ func Test_getEmployees(t *testing.T) {
 		want    []models.Employee
 		wantErr bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "2 valid employees",
+			args: args{
+				csvReader: csv.NewReader(
+					bytes.NewBuffer([]byte(`
+John Doe,doe@test.com,$10.00,1
+Mary Jane,Mary@tes.com,$15,2`)),
+				),
+				fields: []models.FieldIndex{
+					{
+						FieldName:   "email",
+						Index:       []int{1},
+						MultipleCol: false,
+					},
+					{
+						FieldName:   "id",
+						Index:       []int{3},
+						MultipleCol: false,
+					},
+				},
+				uniqueFields: models.UniqueFields{},
+			},
+			want: []models.Employee{
+				{
+					Data: map[string]string{
+						"email": "doe@test.com",
+						"id":    "1",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+				{
+					Data: map[string]string{
+						"email": "Mary@tes.com",
+						"id":    "2",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+			},
+			wantErr: false,
+		},
+		{
+			name: "1 valid employee 1 bad employee",
+			args: args{
+				csvReader: csv.NewReader(
+					bytes.NewBuffer([]byte(`
+John Doe,doe@test.com,$10.00,1
+Mary Jane,,$15,2`)),
+				),
+				fields: []models.FieldIndex{
+					{
+						FieldName:   "email",
+						Index:       []int{1},
+						MultipleCol: false,
+					},
+					{
+						FieldName:   "id",
+						Index:       []int{3},
+						MultipleCol: false,
+					},
+				},
+				uniqueFields: models.UniqueFields{},
+			},
+			want: []models.Employee{
+				{
+					Data: map[string]string{
+						"email": "doe@test.com",
+						"id":    "1",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+				{
+					Data: map[string]string{
+						"email": "",
+						"id":    "2",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: false,
+						Reason:    "empty value for field: email",
+					},
+				},
+			},
+			wantErr: false,
+		},
+		{
+			name: "duplicated email field",
+			args: args{
+				csvReader: csv.NewReader(
+					bytes.NewBuffer([]byte(`
+John Doe,doe@test.com,$10.00,1
+Mary Jane,doe@test.com,$15,2`)),
+				),
+				fields: []models.FieldIndex{
+					{
+						FieldName:   "email",
+						Index:       []int{1},
+						MultipleCol: false,
+					},
+					{
+						FieldName:   "id",
+						Index:       []int{3},
+						MultipleCol: false,
+					},
+				},
+				uniqueFields: models.UniqueFields{
+					Fields: map[string]map[string]bool{
+						"email": {"doe@test.com": true},
+					},
+				},
+			},
+			want: []models.Employee{
+				{
+					Data: map[string]string{
+						"email": "doe@test.com",
+						"id":    "1",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: false,
+						Reason:    "email: doe@test.com - duplicated field",
+					},
+				},
+				{
+					Data: map[string]string{
+						"email": "doe@test.com",
+						"id":    "2",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: false,
+						Reason:    "email: doe@test.com - duplicated field",
+					},
+				},
+			},
+			wantErr: false,
+		},
+		{
+			name: "all empty fields",
+			args: args{
+				csvReader: csv.NewReader(
+					bytes.NewBuffer([]byte(`,,`)),
+				),
+				fields: []models.FieldIndex{
+					{
+						FieldName:   "email",
+						Index:       []int{1},
+						MultipleCol: false,
+					},
+					{
+						FieldName:   "id",
+						Index:       []int{2},
+						MultipleCol: false,
+					},
+				},
+				uniqueFields: models.UniqueFields{
+					Fields: map[string]map[string]bool{
+						"email": {"doe@test.com": true},
+					},
+				},
+			},
+			want: []models.Employee{
+				{
+					Data: map[string]string{
+						"email": "",
+						"id":    "",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: false,
+						Reason:    "empty value for field: id",
+					},
+				},
+			},
+			wantErr: false,
+		},
+		{
+			name: "valid multi column",
+			args: args{
+				csvReader: csv.NewReader(
+					bytes.NewBuffer([]byte(`
+John,Doe,doe@test.com,$10.00,1`)),
+				),
+				fields: []models.FieldIndex{
+					{
+						FieldName:   "name",
+						Index:       []int{0, 1},
+						MultipleCol: true,
+					},
+					{
+						FieldName:   "email",
+						Index:       []int{2},
+						MultipleCol: false,
+					},
+					{
+						FieldName:   "id",
+						Index:       []int{4},
+						MultipleCol: false,
+					},
+				},
+				uniqueFields: models.UniqueFields{},
+			},
+			want: []models.Employee{
+				{
+					Data: map[string]string{
+						"name":  "John Doe",
+						"email": "doe@test.com",
+						"id":    "1",
+					},
+					Correct: models.CorrectData{
+						IsCorrect: true,
+						Reason:    "",
+					},
+				},
+			},
+			wantErr: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
